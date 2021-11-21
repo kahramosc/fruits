@@ -6,9 +6,9 @@ mysql = MySQL()
 app = Flask(__name__)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'jay'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'jay'
-app.config['MYSQL_DATABASE_DB'] = 'BucketList'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'frutas123'
+app.config['MYSQL_DATABASE_DB'] = 'frutas'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
@@ -29,6 +29,17 @@ def about():
 def showSignUp():
     return render_template('signup.html')
 
+
+@app.route('/categorias')
+def getCategorias():
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT IdCategoria,IdNomeCategoria FROM tbCategoria")
+    categorias = cursor.fetchall()
+    conn.close()
+
+    return render_template('categoria.html', categorias=categorias)
 
 @app.route('/signUp',methods=['POST','GET'])
 def signUp():
