@@ -12,6 +12,7 @@
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>{{ produto[1] }}</h3>
+                <h6>{{ produto[10] }}</h6>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
                         <a href="#" class="mr-2">{{ produto[7] }}.0</a>
@@ -65,12 +66,16 @@
                             <p style="color: #000;">{{ produto[8] }}</p>
                         </div>
                     </div>
-                    <p><a href="card" class="btn btn-black py-3 px-5">Adicionar ao Carrinho</a></p>
+                    <p>
+
+                        <a class="btn btn-black py-3 px-5" href="javascript:;"
+                           onclick="this.href='cardInsert?IdOferta={{ produto[11] }}&VrProduto={{ produto[3] }}&Quantidade=' + document.getElementById('quantity').value">Adicionar
+                            ao Carrinho</a></p>
                 </div>
             </div>
         </div>
 </section>
- {% include "sectionReferenceProducts.html" %}
+{% include "sectionReferenceProducts.html" %}
 
 
 {% endblock %}

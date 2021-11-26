@@ -37,7 +37,8 @@
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">{{ produto[1] }}</a></h3>
+                        <h4><a href="#">{{ produto[1] }}</a></h4>
+                         <h3><a href="#">{{ produto[10] }}</a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price"><span class="mr-2 price-dc">R$ {{ produto[3] }}</span><span class="price-sale">R$ {{ produto[3] }}</span>
@@ -46,7 +47,7 @@
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="details?id={{ produto[0] }}"
+                                <a href="details?id={{ produto[0] }}&IdEmpresa={{ produto[11] }}"
                                    class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                     <span><i class="ion-ios-menu"></i></span>
                                 </a>

@@ -350,3 +350,11 @@ $.ajax({
        $('#htmlCategoria').html($(data));
    }
 });
+
+$.ajax({
+   url:'/countCard',
+   type:'GET',
+   success: function(data){
+       $('#countCard').html(data);
+   }
+});

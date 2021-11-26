@@ -3454,6 +3454,7 @@ input[type="button"].btn-block {
   .navbar > .container-fluid {
     display: -webkit-box;
     display: -ms-flexbox;
+
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -8047,7 +8048,7 @@ h1, h2, h3, h4, h5,
   padding: 0; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
-      background: #000000 !important;
+      background: #20752D !important;
       position: relative;
       top: 0;
       padding: 10px 15px; } }
@@ -10011,3 +10012,14 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.logoFrutas{
+   -webkit-transform: scale(0.5); /* Saf3.1+, Chrome */
+     -moz-transform: scale(0.5); /* FF3.5+ */
+      -ms-transform: scale(0.5); /* IE9 */
+       -o-transform: scale(0.5); /* Opera 10.5+ */
+          transform: scale(0.5);
+             /* IE6–IE9 */
+             filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.9999619230641713, M12=-0.008726535498373935, M21=0.008726535498373935, M22=0.9999619230641713,SizingMethod='auto expand');
+
+}
