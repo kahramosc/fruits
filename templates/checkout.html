@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %} Carrinho{% endblock %}
+
 {% block content %}
 <div class="hero-wrap hero-bread" style="background-image: url('../static/images/bg_1.jpg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Carrinho</span></p>
-                <h1 class="mb-0 bread">Meu Carrinho</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Finalizar Pedido</span></p>
+                <h1 class="mb-0 bread">Checkout</h1>
             </div>
         </div>
     </div>
@@ -21,7 +21,6 @@
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>&nbsp;</th>
-                            <th>&nbsp;</th>
                             <th>Produto</th>
                             <th>Preço</th>
                             <th>Quantidade</th>
@@ -31,7 +30,6 @@
                         <tbody>
                         {% for produto in produtos %}
                         <tr class="text-center">
-                            <td class="product-remove"><a href="/removeCardItem?IdOferta={{ produto[15] }}&IdCarrinho={{ produto[16] }}"><span class="ion-ios-close"></span></a></td>
 
                             <td class="image-prod">
                                 <div class="img"
@@ -46,23 +44,7 @@
                             <td class="price">R$ {{ produto[3] }}</td>
 
                             <td class="quantity">
-                                 <div class="row mt-4" style="flex-wrap: inherit !important;">
-                                <span class="input-group-btn mr-2">
-	                	<button type="button" id="btnMenos_{{ produto[15]}}_{{ produto[16]}}" class="quantity-left-minus btn btnMenosCard" data-type="minus"
-                                data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-                            <input type="label" id="quantityText_{{ produto[15]}}_{{ produto[16]}}" name="quantity" class="form-control input-number"
-                                   value="{{ produto[12] }}"
-                                   min="1" max="100">
-                            <span class="input-group-btn ml-2">
-	                	<button type="button" id="btnMais_{{ produto[15]}}_{{ produto[16]}}" class="quantity-right-plus btn btnMaisCard" data-type="plus"
-                                data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span>
-                                     </div>
+                               {{ produto[12] }}
                             </td>
 
                             <td class="total">R$ {{ produto[14] }}</td>
@@ -77,47 +59,24 @@
         <div class="row justify-content-end">
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Cupom de Desconto</h3>
-                    <p>Entre com seu código de cupom</p>
-                    <form action="#" class="info">
-                        <div class="form-group">
-                            <label for="">Código</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="">
-                        </div>
-                    </form>
-                </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Aplicar</a></p>
-            </div>
-            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
                     <h3>Valor de Frete</h3>
-                    <p>Endereço selecionado</p>
+                    <p>Endereço de Entrega</p>
                     <form action="#" class="info">
                         <div class="form-group">
                             <label for="">Lagradouro</label>
-
-
                         </div>
                         <div class="form-group">
                             <label for="">Número</label>
-
-
                         </div>
                         <div class="form-group">
                             <label for="">Complemento</label>
-
                         </div>
 
                         <div class="form-group">
-
                             <label for="country">Estado</label>
-
-
                         </div>
                         <div class="form-group">
-
                             <label for="country">CEP</label>
-
                         </div>
                     </form>
                 </div>
@@ -145,7 +104,7 @@
                         <span>R$ {{ carrinho[1] }}</span>
                     </p>
                 </div>
-                <p><a href="/checkout" class="btn btn-primary py-3 px-4">Finalizar Compra</a></p>
+                <p><a href="/finalizar" class="btn btn-primary py-3 px-4">Finalizar Pedido</a></p>
             </div>
         </div>
     </div>

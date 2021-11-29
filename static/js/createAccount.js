@@ -4,14 +4,27 @@ $( "#createAccount" ).click(function() {
 
 function insertUser() {
 
+     var dict = {
+        nome: $('#StNome').val(),
+      email: $('#StEmail').val(),
+      senha: $('#StSenha').val(),
+      cep: $('#StCep').val(),
+      lagradouro: $('#StLagradouro').val(),
+      numero: $('#StNumero').val(),
+      cidade: $('#StCidade').val(),
+      estado: $('#StEstado').val(),
+      bairro: $('#StBairro').val(),
+      complemento: $('#StComplemento').val()
+      };
+
     $.ajax({
       type: "POST",
+      async: true,
       contentType: "application/json; charset=utf-8",
       url: "/insertUser",
-      data: JSON.stringify({nome: $('#StNome').val(), email: $('#StEmail').val()}),
+      data: JSON.stringify(dict),
       success: function (data) {
-        console.log(data.nome);
-        console.log(data.email);
+
         window.location.replace("/home");
 
       },

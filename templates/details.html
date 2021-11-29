@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block title %} {{ produto[1] }}{% endblock %}
 {% block content %}
 <section class="ftco-section">
     <div class="container">
@@ -49,14 +50,17 @@
                         <div class="w-100"></div>
                         <div class="input-group col-md-8 d-flex mb-3">
 	             	<span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+	                	<button type="button" id="btnMenos" class="quantity-left-minus btn" data-type="minus"
+                                data-field="">
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                            <input type="text" id="quantityText" name="quantity" class="form-control input-number"
+                                   value="1"
                                    min="1" max="100">
                             <span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+	                	<button type="button" id="btnMais" class="quantity-right-plus btn" data-type="plus"
+                                data-field="">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
 	             	</span>
@@ -69,7 +73,7 @@
                     <p>
 
                         <a class="btn btn-black py-3 px-5" href="javascript:;"
-                           onclick="this.href='cardInsert?IdOferta={{ produto[11] }}&VrProduto={{ produto[3] }}&Quantidade=' + document.getElementById('quantity').value">Adicionar
+                           onclick="this.href='cardInsert?IdOferta={{ produto[11] }}&VrProduto={{ produto[3] }}&Quantidade=' + document.getElementById('quantityText').value">Adicionar
                             ao Carrinho</a></p>
                 </div>
             </div>

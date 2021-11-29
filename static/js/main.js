@@ -352,9 +352,75 @@ $.ajax({
 });
 
 $.ajax({
+   url:'/getHtmlHeader',
+   type:'GET',
+   success: function(data){
+       $('#htmlHeader').html($(data));
+   }
+});
+
+$.ajax({
    url:'/countCard',
    type:'GET',
    success: function(data){
        $('#countCard').html(data);
    }
 });
+
+$( "#btnMenos" ).click(function() {
+
+  var quantity = parseInt($("#quantityText").val());
+  if(quantity > 1){
+    quantity = quantity - 1;
+  }
+  $("#quantityText").val(quantity)
+
+});
+
+$( "#btnMais" ).click(function() {
+
+  var quantity = parseInt($("#quantityText").val());
+    quantity = quantity + 1;
+  $("#quantityText").val(quantity)
+
+});
+
+
+$( "#btnEntrar" ).click(function() {
+
+ login();
+
+});
+
+function login() {
+
+    var dict = {email : $('#StEmail').val() , senha:$('#StSenha').val()};
+
+    $.ajax({
+      type: "POST",
+      async: true,
+      contentType: "application/json; charset=utf-8",
+      url: "/loginOpen",
+      data: JSON.stringify(dict),
+       success: function (response) {
+
+            if(response.message=="OK"){
+                window.location.replace("/home");
+            }else{
+                $('#alerta').html(response.message),
+                $("#alertaPanel").css({visibility:"visible", opacity: 0.0}).animate({opacity: 1.0},200);
+                $('#StSenha').val("")
+            }
+
+      },
+      error: function (xhr, ajaxOptions, thrownError) {
+        $('#alerta').html(data),
+            $('#StSenha').val("")
+            $("#alertaPanel").css({visibility:"visible", opacity: 0.0}).animate({opacity: 1.0},200);
+
+      },
+      dataType: "json"
+    });
+
+}
+

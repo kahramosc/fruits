@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>IFruits - {% block title %} {% endblock %}</title>
+    <title>Feira Livre - {% block title %} {% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -31,26 +31,8 @@
 </head>
 <body class="goto-here">
 <div class="py-1 bg-primary">
-    <div class="container">
-        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
-            <div class="col-lg-12 d-block">
-                <div class="row d-flex">
-                    <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
-                                class="icon-phone2"></span></div>
-                        <span class="text">+ 1235 2355 98</span>
-                    </div>
-                    <div class="col-md pr-4 d-flex topper align-items-center">
-                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
-                                class="icon-paper-plane"></span></div>
-                        <span class="text">{{email}}</span>
-                    </div>
-                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                        <span class="text">Av Paulista, 315 - Centro</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container" id="htmlHeader">
+
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -102,7 +84,7 @@
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <h2 class="ftco-heading-2">Feira Online</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                    <p>Sua loja online de frutas e verduras, sempre frescas com nosso selo de qualidade.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -114,40 +96,40 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Menu</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Shop</a></li>
-                        <li><a href="#" class="py-2 d-block">About</a></li>
-                        <li><a href="#" class="py-2 d-block">Journal</a></li>
-                        <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                        <li><a href="/home" class="py-2 d-block">Loja</a></li>
+                        <li><a href="/about" class="py-2 d-block">Sobre nós</a></li>
+
+                        <li><a href="#" class="py-2 d-block">Atendimento</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Help</h2>
+                    <h2 class="ftco-heading-2">Ajuda</h2>
                     <div class="d-flex">
                         <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-                            <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
-                            <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-                            <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
-                            <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                            <li><a href="#" class="py-2 d-block">Informações de Frete</a></li>
+                            <li><a href="#" class="py-2 d-block">Devoluções</a></li>
+                            <li><a href="#" class="py-2 d-block">Termos e Condições</a></li>
+                            <li><a href="#" class="py-2 d-block">Políticas</a></li>
                         </ul>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                            <li><a href="#" class="py-2 d-block">SAC</a></li>
+                            <li><a href="#" class="py-2 d-block">Contato</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <h2 class="ftco-heading-2">Contatos</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            <li><span class="icon icon-map-marker"></span><span class="text">Av Paulista, 4837 - Centro</span>
                             </li>
                             <li><a href="#"><span class="icon icon-phone"></span><span
-                                    class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                                    class="text">+55 1139457584</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contato@feiralivre.com.br</span></a>
                             </li>
                         </ul>
                     </div>
@@ -159,7 +141,7 @@
 
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                    Todos os Direitos Reservados | This template is made with <i class="icon-heart color-danger"
                                                                         aria-hidden="true"></i> by <a
                             href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -193,9 +175,8 @@
 <script src="../static/js/jquery.animateNumber.min.js"></script>
 <script src="../static/js/bootstrap-datepicker.js"></script>
 <script src="../static/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="../static/js/google-map.js"></script>
 <script src="../static/js/main.js"></script>
+<script src="../static/js/card.js"></script>
 
 </body>
 </html>

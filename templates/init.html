@@ -7,7 +7,8 @@
 
 
     <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
@@ -33,56 +34,64 @@
     <link rel="stylesheet" href="../static/css/flaticon.css">
     <link rel="stylesheet" href="../static/css/icomoon.css">
     <link rel="stylesheet" href="../static/css/style.css">
-	<link rel="stylesheet" href="../static/css/init.css">
+    <link rel="stylesheet" href="../static/css/init.css">
 </head>
 <body class="goto-here">
 
-<div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				 <img class="img-fluid" src="../static/images/logobranco.png"
-                     alt="Feira Livre">
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
-			</div>
-			<div class="card-body">
-				<h4>Login</h4>
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input type="text" class="form-control" placeholder="Email">
 
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input type="password" class="form-control" placeholder="Senha">
-					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Entrar" class="btn float-right login_btn">
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					<a href="/createAccount">Criar Conta</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="/forgetPwd">Esqueci a senha?</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container">
+    <div class="alert alert-danger" id="alertaPanel" style="visibility: hidden;">
+        <strong>Incorreto!</strong>
+        <div id="alerta"></div>
+    </div>
+
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <img class="img-fluid" src="../static/images/logobranco.png"
+                     alt="Feira Livre">
+                <div class="d-flex justify-content-end social_icon">
+                    <span><i class="fab fa-facebook-square"></i></span>
+                    <span><i class="fab fa-google-plus-square"></i></span>
+                    <span><i class="fab fa-twitter-square"></i></span>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <h4>Login</h4>
+                <form>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" id="StEmail" class="form-control" placeholder="Email">
+
+                    </div>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" id="StSenha" class="form-control" placeholder="Senha">
+                    </div>
+                    <div class="row align-items-center remember">
+                        <input type="checkbox">Remember Me
+                    </div>
+                    <div class="form-group">
+                        <input type="button" id="btnEntrar" value="Entrar" class="btn float-right login_btn">
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    <a href="/createAccount">Criar Conta</a>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="/forgetPwd">Esqueci a senha?</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -99,8 +108,7 @@
 <script src="../static/js/jquery.animateNumber.min.js"></script>
 <script src="../static/js/bootstrap-datepicker.js"></script>
 <script src="../static/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="../static/js/google-map.js"></script>
+
 <script src="../static/js/main.js"></script>
 
 </body>
