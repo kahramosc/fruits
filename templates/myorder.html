@@ -41,7 +41,7 @@
                             <td class="price">R$ {{ order[4] }}</td>
 
 
-                            <td class="total">Detalhes</td>
+                            <td class="total"><a href="/detailsOrder?order={{ order[0] }}">Detalhes</a></td>
                         </tr><!-- END TR-->
                         {%endfor%}
 
@@ -54,8 +54,13 @@
     </div>
 </section>
 {% else %}
+<div style="tex-align:center;">
+    <br> <br> <br> <br>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Você ainda não fez nenhum pedido !</h2>
+    <br> <br> <br>
+    <div>
 
-Você ainda não fez nenhum pedido !
+
 
 {% endif %}
 

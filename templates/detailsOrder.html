@@ -1,10 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-wrap hero-bread" style="background-image: url('../static/images/bg_1.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Meu Pedido</span></p>
+                <h1 class="mb-0 bread">{{id_ord}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% if produtos is defined and produtos|length > 0 %}
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    <table class="table">
+                        <thead class="thead-primary">
+                        <tr class="text-center">
+                            <th>&nbsp;</th>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for produto in produtos %}
+                        <tr class="text-center">
+
+                            <td class="image-prod">
+                                <div class="img"
+                                     style="background-image:url(../static/images/{{ produto[9] }}.jpg);"></div>
+                            </td>
+
+                            <td class="product-name">
+                                <h3>{{ produto[1] }}</h3>
+                                <p>{{ produto[10] }}</p>
+                            </td>
+
+                            <td class="price">R$ {{ produto[3] }}</td>
+
+                            <td class="quantity">
+                               {{ produto[12] }}
+                            </td>
+
+                            <td class="total">R$ {{ produto[14] }}</td>
+                        </tr><!-- END TR-->
+                        {%endfor%}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Valor de Frete</h3>
+                    <p>Endereço selecionado</p>
+                    <form action="#" class="info">
+                        <div class="form-group">
+                            <label for="">Lagradouro</label>
+                            {{ endereco[3] }}
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Número</label>
+
+                            {{ endereco[4] }}
+                        </div>
+                        <div class="form-group">
+                            <label for="">Complemento</label>
+                            {{ endereco[7] }}
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="country">Estado</label>
+                            {{ endereco[6] }}
+
+                        </div>
+                        <div class="form-group">
+
+                            <label for="country">CEP</label>
+                            {{ endereco[1] }}
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="country">Bairro</label>
+                            {{ endereco[8] }}
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                <div class="cart-total mb-3">
+                    <h3>Compra Total</h3>
+                    <p class="d-flex">
+                        <span>Subtotal</span>
+                        <span>R$ {{ carrinho[5] }}</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Frete</span>
+                        <span>R$ {{ carrinho[3] }}</span>
+                    </p>
+                    <p class="d-flex">
+                        <span>Descontos</span>
+                        <span>R$ {{ carrinho[4] }}</span>
+                    </p>
+                    <hr>
+                    <p class="d-flex total-price">
+                        <span>Total</span>
+                        <span>R$ {{ carrinho[1] }}</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+
+Carrinho Vazio
+
+{% endif %}
+
+{% endblock %}

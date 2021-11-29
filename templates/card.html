@@ -31,7 +31,9 @@
                         <tbody>
                         {% for produto in produtos %}
                         <tr class="text-center">
-                            <td class="product-remove"><a href="/removeCardItem?IdOferta={{ produto[15] }}&IdCarrinho={{ produto[16] }}"><span class="ion-ios-close"></span></a></td>
+                            <td class="product-remove"><a
+                                    href="/removeCardItem?IdOferta={{ produto[15] }}&IdCarrinho={{ produto[16] }}"><span
+                                    class="ion-ios-close"></span></a></td>
 
                             <td class="image-prod">
                                 <div class="img"
@@ -46,23 +48,26 @@
                             <td class="price">R$ {{ produto[3] }}</td>
 
                             <td class="quantity">
-                                 <div class="row mt-4" style="flex-wrap: inherit !important;">
+                                <div class="row mt-4" style="flex-wrap: inherit !important;">
                                 <span class="input-group-btn mr-2">
-	                	<button type="button" id="btnMenos_{{ produto[15]}}_{{ produto[16]}}" class="quantity-left-minus btn btnMenosCard" data-type="minus"
+	                	<button type="button" id="btnMenos_{{ produto[15]}}_{{ produto[16]}}"
+                                class="quantity-left-minus btn btnMenosCard" data-type="minus"
                                 data-field="">
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-                            <input type="label" id="quantityText_{{ produto[15]}}_{{ produto[16]}}" name="quantity" class="form-control input-number"
-                                   value="{{ produto[12] }}"
-                                   min="1" max="100">
-                            <span class="input-group-btn ml-2">
-	                	<button type="button" id="btnMais_{{ produto[15]}}_{{ produto[16]}}" class="quantity-right-plus btn btnMaisCard" data-type="plus"
+                                    <input type="label" id="quantityText_{{ produto[15]}}_{{ produto[16]}}"
+                                           name="quantity" class="form-control input-number"
+                                           value="{{ produto[12] }}"
+                                           min="1" max="100">
+                                    <span class="input-group-btn ml-2">
+	                	<button type="button" id="btnMais_{{ produto[15]}}_{{ produto[16]}}"
+                                class="quantity-right-plus btn btnMaisCard" data-type="plus"
                                 data-field="">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
 	             	</span>
-                                     </div>
+                                </div>
                             </td>
 
                             <td class="total">R$ {{ produto[14] }}</td>
@@ -95,29 +100,35 @@
                     <form action="#" class="info">
                         <div class="form-group">
                             <label for="">Lagradouro</label>
-
+                            {{ endereco[3] }}
 
                         </div>
                         <div class="form-group">
                             <label for="">Número</label>
 
-
+                            {{ endereco[4] }}
                         </div>
                         <div class="form-group">
                             <label for="">Complemento</label>
-
+                            {{ endereco[7] }}
                         </div>
 
                         <div class="form-group">
 
                             <label for="country">Estado</label>
-
+                            {{ endereco[6] }}
 
                         </div>
                         <div class="form-group">
 
                             <label for="country">CEP</label>
+                            {{ endereco[1] }}
+                        </div>
 
+                        <div class="form-group">
+
+                            <label for="country">Bairro</label>
+                            {{ endereco[8] }}
                         </div>
                     </form>
                 </div>
@@ -151,9 +162,12 @@
     </div>
 </section>
 {% else %}
+<div style="tex-align:center;">
+    <br> <br> <br> <br>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Carrinho Vazio</h2>
+    <br> <br> <br>
+    <div>
 
-Carrinho Vazio
+        {% endif %}
 
-{% endif %}
-
-{% endblock %}
+        {% endblock %}

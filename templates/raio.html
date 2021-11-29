@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'baseEmpresa.html' %}
+
+{% block title %} Raio de Atendimento {% endblock %}
+{% block content %}
+
+<section class="ftco-section" style="text-align: center;">
+
+    <br>
+    Km Atendidos: <input type="text" value="10" id="StRaio" placeholder="Km Atendidos">
+    <br> <br>
+    <a href="#" onclick="return setListenerBuffer();">Incluir Raio</a><br/>
+    <a href="#" onclick="RemoveCircleBuffer();">Remover Raio</a>
+    <br> <br>
+    <div id="map-canvas"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_GRSBkc8zSclg-uktUYE3_-gk_kz1TvI"></script>
+    <script src="../static/js/hash.js"></script>
+
+
+    <script type="text/javascript">
+        initialize();
+
+
+
+
+    </script>
+    <br> <br><br>
+    <div class="form-address">
+
+        <input type="button" id="insertAtendimento" value="Cadastrar Raio de Atendimento"
+               class="btn btn-black py-3 px-5">
+    </div>
+    <br> <br><br> <br><br> <br>'
+</section>
+<br><br>
+
+{% endblock %}
+
+

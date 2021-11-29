@@ -5,13 +5,13 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Carrinho</span></p>
-                <h1 class="mb-0 bread">Meu Carrinho</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Endereço</span></p>
+                <h1 class="mb-0 bread">Meus Endereços</h1>
             </div>
         </div>
     </div>
 </div>
-{% if produtos is defined and produtos|length > 0 %}
+{% if address is defined and address|length > 0 %}
 <section class="ftco-section ftco-cart">
     <div class="container">
         <div class="row">
@@ -20,57 +20,37 @@
                     <table class="table">
                         <thead class="thead-primary">
                         <tr class="text-center">
-                            <th>&nbsp;</th>
-                            <th>&nbsp;</th>
-                            <th>Produto</th>
-                            <th>Preço</th>
-                            <th>Quantidade</th>
-                            <th>Total</th>
+                            <th></th>
+                            <th>Logradouro</th>
+                            <th>Número</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>Estado</th>
+                            <th>Complemento</th>
+                            <th>CEP</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        {% for produto in produtos %}
+                        {% for addr in address %}
                         <tr class="text-center">
+
+
                             <td class="product-remove"><a
-                                    href="/removeCardItem?IdOferta={{ produto[15] }}&IdCarrinho={{ produto[16] }}"><span
-                                    class="ion-ios-close"></span></a></td>
+                                    href="/selectEnd?CdEndereco={{ addr[0] }}"><span>Selecionar</span></a></td>
 
-                            <td class="image-prod">
-                                <div class="img"
-                                     style="background-image:url(../static/images/{{ produto[9] }}.jpg);"></div>
-                            </td>
 
-                            <td class="product-name">
-                                <h3>{{ produto[1] }}</h3>
-                                <p>{{ produto[10] }}</p>
-                            </td>
+                            <td class="price">{{ addr[3] }}</td>
+                            <td class="price">{{ addr[4] }}</td>
+                            <td class="price">{{ addr[8] }}</td>
+                            <td class="price">{{ addr[5] }}</td>
+                            <td class="price">{{ addr[6] }}</td>
+                            <td class="price">{{ addr[7] }}</td>
+                            <td class="price">{{ addr[1] }}</td>
 
-                            <td class="price">R$ {{ produto[3] }}</td>
+                            <td class="product-remove"><a
+                                    href="/removeEnd?CdEndereco={{ addr[0] }}"><span>Remover</span></a></td>
 
-                            <td class="quantity">
-                                <div class="row mt-4" style="flex-wrap: inherit !important;">
-                                <span class="input-group-btn mr-2">
-	                	<button type="button" id="btnMenos_{{ produto[15]}}_{{ produto[16]}}"
-                                class="quantity-left-minus btn btnMenosCard" data-type="minus"
-                                data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-                                    <input type="label" id="quantityText_{{ produto[15]}}_{{ produto[16]}}"
-                                           name="quantity" class="form-control input-number"
-                                           value="{{ produto[12] }}"
-                                           min="1" max="100">
-                                    <span class="input-group-btn ml-2">
-	                	<button type="button" id="btnMais_{{ produto[15]}}_{{ produto[16]}}"
-                                class="quantity-right-plus btn btnMaisCard" data-type="plus"
-                                data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span>
-                                </div>
-                            </td>
-
-                            <td class="total">R$ {{ produto[14] }}</td>
                         </tr><!-- END TR-->
                         {%endfor%}
 
@@ -79,92 +59,84 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-end">
-            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
-                    <h3>Cupom de Desconto</h3>
-                    <p>Entre com seu código de cupom</p>
-                    <form action="#" class="info">
-                        <div class="form-group">
-                            <label for="">Código</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="">
-                        </div>
-                    </form>
-                </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Aplicar</a></p>
-            </div>
-            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
-                    <h3>Valor de Frete</h3>
-                    <p>Endereço selecionado</p>
-                    <form action="#" class="info">
-                        <div class="form-group">
-                            <label for="">Lagradouro</label>
-                            {{ endereco[3] }}
-
-                        </div>
-                        <div class="form-group">
-                            <label for="">Número</label>
-
-                            {{ endereco[4] }}
-                        </div>
-                        <div class="form-group">
-                            <label for="">Complemento</label>
-                            {{ endereco[7] }}
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="country">Estado</label>
-                            {{ endereco[6] }}
-
-                        </div>
-                        <div class="form-group">
-
-                            <label for="country">CEP</label>
-                            {{ endereco[1] }}
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="country">Bairro</label>
-                            {{ endereco[8] }}
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-            <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
-                    <h3>Compra Total</h3>
-                    <p class="d-flex">
-                        <span>Subtotal</span>
-                        <span>R$ {{ carrinho[5] }}</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Frete</span>
-                        <span>R$ {{ carrinho[3] }}</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Descontos</span>
-                        <span>R$ {{ carrinho[4] }}</span>
-                    </p>
-                    <hr>
-                    <p class="d-flex total-price">
-                        <span>Total</span>
-                        <span>R$ {{ carrinho[1] }}</span>
-                    </p>
-                </div>
-                <p><a href="/checkout" class="btn btn-primary py-3 px-4">Finalizar Compra</a></p>
-            </div>
-        </div>
     </div>
 </section>
+<br>
+<div class="container">
+    <h4>Cadastrar Novo Endereço</h4>
+    <form>
+
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+            </div>
+            <input type="text" class="form-control" id="StCep" placeholder="CEP">
+            <input type="button" id="btnBuscarCep" value="Buscar" class="float-right btnBuscar">
+
+        </div>
+
+        <div class="addres">
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StLagradouro" placeholder="Rua">
+
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StNumero" placeholder="Número">
+
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StCidade" placeholder="Cidade">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StEstado" placeholder="Estado">
+
+
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StBairro" placeholder="Bairro">
+
+            </div>
+
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                </div>
+                <input type="text" class="form-control" id="StComplemento" placeholder="Complemento">
+
+            </div>
+
+        </div>
+
+
+        <br>
+        <div class="form-address">
+
+            <input type="button" id="insertAddress" value="Cadastrar Endereço" class="btn btn-black py-3 px-5">
+        </div>
+    </form>
+</div>
+<br> <br> <br> <br>
 {% else %}
 <div style="tex-align:center;">
     <br> <br> <br> <br>
-    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Carrinho Vazio</h2>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nenhum Endereço Cadastrado</h2>
     <br> <br> <br>
     <div>
 

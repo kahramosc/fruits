@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'baseEmpresa.html' %}
 
 {% block content %}
 <div class="hero-wrap hero-bread" style="background-image: url('../static/images/bg_1.jpg');">
@@ -6,7 +6,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Pedidos</span></p>
-                <h1 class="mb-0 bread">Meus Pedidos</h1>
+                <h1 class="mb-0 bread">Pedidos Para Mim</h1>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
                             <td class="price">R$ {{ order[4] }}</td>
 
 
-                            <td class="total"><a href="/detailsOrder?order={{ order[0] }}">Detalhes</a></td>
+                            <td class="total"><a href="/detailsOrderEmpresa?order={{ order[0] }}">Detalhes</a></td>
                         </tr><!-- END TR-->
                         {%endfor%}
 
@@ -56,7 +56,7 @@
 {% else %}
 <div style="tex-align:center;">
     <br> <br> <br> <br>
-    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Você ainda não fez nenhum pedido !</h2>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Você ainda não fez recebeu nenhum pedido !</h2>
     <br> <br> <br>
     <div>
 

@@ -360,6 +360,14 @@ $.ajax({
 });
 
 $.ajax({
+   url:'/getHtmlHeaderEmpresa',
+   type:'GET',
+   success: function(data){
+       $('#htmlHeaderEmpresa').html($(data));
+   }
+});
+
+$.ajax({
    url:'/countCard',
    type:'GET',
    success: function(data){
@@ -392,6 +400,14 @@ $( "#btnEntrar" ).click(function() {
 
 });
 
+$( "#insertAtendimento" ).click(function() {
+
+ window.location.replace("/homeEmpresa");
+
+});
+
+
+
 function login() {
 
     var dict = {email : $('#StEmail').val() , senha:$('#StSenha').val()};
@@ -423,4 +439,5 @@ function login() {
     });
 
 }
+
 
