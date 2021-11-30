@@ -10,10 +10,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_USER'] = 'frutas'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'frutas123'
 app.config['MYSQL_DATABASE_DB'] = 'frutas'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'frutas.mysql.dbaas.com.br'
 mysql.init_app(app)
 
 
