@@ -128,7 +128,6 @@ def loginOpen():
             data=id_user,
             status=200
         )
-        session.pop('card')
 
     return jsonify(
         message=f"Login Incorreto!",
