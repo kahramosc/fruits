@@ -361,8 +361,8 @@ def details():
 
         cursor.execute(
             "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso,pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,ofe.IdOferta " \
-            "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-            "inner join frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+            "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+            "inner join tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
             "WHERE pro.IdProduto=%s and emp.IdEmpresa=%s",
             (id, IdEmpresa))
 
@@ -387,8 +387,8 @@ def detailsHash():
 
         cursor.execute(
             "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso,pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,ofe.IdOferta " \
-            "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-            "inner join frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+            "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+            "inner join tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
             "WHERE pro.IdProduto=%s and emp.IdEmpresa=%s",
             (id, IdEmpresa))
 
@@ -412,7 +412,7 @@ def raio():
 def getCategorias():
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT IdCategoria,IdNomeCategoria FROM tbCategoria")
+    cursor.execute("SELECT IdCategoria,IdNomeCategoria FROM tbcategoria")
     categorias = cursor.fetchall()
     conn.close()
 
@@ -478,8 +478,8 @@ def list():
 
         cursor.execute(
             "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso,pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,emp.IdEmpresa " \
-            "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-            "inner join frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+            "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+            "inner join tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
             "WHERE pro.IdCategoria=%s", id)
         produtos = cursor.fetchall();
 
@@ -501,8 +501,8 @@ def listEmpresa():
     try:
         cursor.execute(
             "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso,pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,emp.IdEmpresa,ofe.QtProduto " \
-            "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-            "INNER JOIN frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+            "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+            "INNER JOIN tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
             "WHERE ofe.IdEmpresa=%s", id_emp[0])
         produtos = cursor.fetchall();
 
@@ -708,7 +708,7 @@ def getEmpresa():
 
     sql = "SELECT " \
           "emp.IdEmpresa,emp.DsNome " \
-          "FROM tbempresa emp INNER JOIN tbUsuario usu on emp.IdEmpresa = usu.IdEmpresa " \
+          "FROM tbempresa emp INNER JOIN tbusuario usu on emp.IdEmpresa = usu.IdEmpresa " \
           "WHERE usu.IdUsuario=%s"
 
     val = id_user
@@ -853,9 +853,9 @@ def selectCardItens(IdCarrinho):
         "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso," \
         "pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,emp.IdEmpresa," \
         "item.QtProduto,item.VrProduto,item.VrTotal, ofe.IdOferta, item.IdCarrinho " \
-        "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-        "inner join frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
-        "inner join frutas.tbcarrinhoitens item on item.IdOferta = ofe.IdOferta " \
+        "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+        "inner join tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+        "inner join tbcarrinhoitens item on item.IdOferta = ofe.IdOferta " \
         "WHERE item.IdCarrinho=%s", IdCarrinho)
     produtos = cursor.fetchall();
 
@@ -872,9 +872,9 @@ def selectCardItensByEmpresa(IdCarrinho, IdEmpresa):
         "SELECT pro.IdProduto,pro.DsNome,pro.IdCategoria,ofe.VrProduto,pro.VrDimensao,pro.VrPeso," \
         "pro.DsProduto,pro.NmRaiting,pro.DsPorcao,pro.DsImagem,emp.DsNome,emp.IdEmpresa," \
         "item.QtProduto,item.VrProduto,item.VrTotal,ofe.IdOferta,item.IdCarrinho " \
-        "FROM frutas.tbproduto pro inner join frutas.tboferta ofe on pro.IdProduto = ofe.IdProduto " \
-        "inner join frutas.tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
-        "inner join frutas.tbcarrinhoitens item on item.IdOferta = ofe.IdOferta " \
+        "FROM tbproduto pro inner join tboferta ofe on pro.IdProduto = ofe.IdProduto " \
+        "inner join tbempresa emp on ofe.IdEmpresa = emp.IdEmpresa  " \
+        "inner join tbcarrinhoitens item on item.IdOferta = ofe.IdOferta " \
         "WHERE item.IdCarrinho = %s and emp.IdEmpresa = %s ", (IdCarrinho, IdEmpresa))
     produtos = cursor.fetchall();
 
