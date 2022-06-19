@@ -5,7 +5,6 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Finalizar Pedido</span></p>
                 <h1 class="mb-0 bread">Checkout</h1>
             </div>
         </div>
@@ -37,14 +36,14 @@
                             </td>
 
                             <td class="product-name">
-                                <h3>{{ produto[1] }}</h3>
-                                <p>{{ produto[10] }}</p>
+                                <div style="font-size:18px !important;">{{ produto[1] }}</div>
+                                <div style="font-size:13px !important;">{{ produto[10] }}</div>
                             </td>
 
                             <td class="price">R$ {{ produto[3] }}</td>
 
                             <td class="quantity">
-                               {{ produto[12] }}
+                                {{ produto[12] }}
                             </td>
 
                             <td class="total">R$ {{ produto[14] }}</td>
@@ -59,7 +58,8 @@
         <div class="row justify-content-end">
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Valor de Frete</h3>
+                    <div style="font-size:23px !important;">Valor de Frete</div>
+
                     <p>Endereço de Entrega</p>
                     <form action="#" class="info">
                         <div class="form-group">
@@ -85,7 +85,8 @@
 
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Compra Total</h3>
+                    <div style="font-size:23px !important;">Resumo de Valores</div>
+
                     <p class="d-flex">
                         <span>Subtotal</span>
                         <span>R$ {{ carrinho[5] }}</span>
@@ -104,7 +105,15 @@
                         <span>R$ {{ carrinho[1] }}</span>
                     </p>
                 </div>
-                <p><a href="/finalizar" class="btn btn-primary py-3 px-4">Finalizar Pedido</a></p>
+                <p><a href="/finalizar" class="btn btn-primary py-3 px-4"
+                      aria-label="Finalizar Pedido no valor total de {{ carrinho[1] }} reais com Frete de {{ carrinho[3] }} e produtos no valor de {{ carrinho[5] }}
+                      com os produtos
+{% for produto in produtos %}
+ {{ produto[12] }} unidades de {{ produto[1] }} do {{ produto[10] }} e
+
+  {%endfor%}
+"
+                      style="width: 100%">Finalizar Pedido</a></p>
             </div>
         </div>
     </div>

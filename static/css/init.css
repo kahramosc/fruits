@@ -16,12 +16,14 @@ align-content: center;
 
 }
 
+
+
 .card{
-height: 400px;
+height: 420px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+background-color: rgba(0,0,0,0.8) !important;
 }
 
 .social_icon span{
@@ -38,7 +40,7 @@ cursor: pointer;
 
 .card-body h4{
 color: white;
-font-size:16px;
+font-size:20px;
 }
 
 .social_icon{
@@ -62,6 +64,7 @@ box-shadow: 0 0 0 0 !important;
 
 .remember{
 color: white;
+height: 40px;
 }
 
 .remember input
@@ -75,7 +78,8 @@ margin-right: 5px;
 .login_btn{
 color: black;
 background-color: #FFC312;
-width: 100px;
+width: 80%;
+margin-right:10%;
 }
 
 .login_btn:hover{
@@ -94,6 +98,15 @@ margin-left: 4px;
 .img-fluid{
 margin-left: 25px;
 margin-right: 5px;
+width:85%;
+height:100%;
+}
+
+
+
+
+.card-footer{
+background-color: rgba(0,0,0,0.8) !important;
 }
 
 .card-footer a{
@@ -103,5 +116,22 @@ font-size:20px;
 
 .card-footer a:hover{
 color:#FFC312;
+text-decoration:underline;
+}
 
+.boxFont{
+position:absolute;
+width: 65%;
+height: 40px;
+text-align:right;
+margin-top:0px;
+
+}
+
+.boxFont input{
+background:#000000;
+font-size:20px;
+color:#fff !important;
+width: 45px;
+height: 45px;
 }

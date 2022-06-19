@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Carrinho</span></p>
+
                 <h1 class="mb-0 bread">Meu Carrinho</h1>
             </div>
         </div>
@@ -31,9 +31,10 @@
                         <tbody>
                         {% for produto in produtos %}
                         <tr class="text-center">
-                            <td class="product-remove"><a
+                            <td class="product-remove"><a aria-label="Quantidade de Produtos" aria-labelledby="Quantidade de Produto {{ produto[1] }} do {{ produto[10] }}"
                                     href="/removeCardItem?IdOferta={{ produto[15] }}&IdCarrinho={{ produto[16] }}"><span
-                                    class="ion-ios-close"></span></a></td>
+                                    class="ion-ios-close"
+                             ></span></a></td>
 
                             <td class="image-prod">
                                 <div class="img"
@@ -41,8 +42,8 @@
                             </td>
 
                             <td class="product-name">
-                                <h3>{{ produto[1] }}</h3>
-                                <p>{{ produto[10] }}</p>
+                                <div style="font-size:18px !important;">{{ produto[1] }}</div>
+                                <div style="font-size:13px !important;">{{ produto[10] }}</div>
                             </td>
 
                             <td class="price">R$ {{ produto[3] }}</td>
@@ -51,18 +52,18 @@
                                 <div class="row mt-4" style="flex-wrap: inherit !important;">
                                 <span class="input-group-btn mr-2">
 	                	<button type="button" id="btnMenos_{{ produto[15]}}_{{ produto[16]}}"
-                                class="quantity-left-minus btn btnMenosCard" data-type="minus"
+                                class="quantity-left-minus btn btnMenosCard" aria-label="Menos Produtos {{ produto[1] }} do {{ produto[10] }}" aria-labelledby="Menos Produtos {{ produto[1] }} do {{ produto[10] }}" data-type="minus"
                                 data-field="">
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
                                     <input type="label" id="quantityText_{{ produto[15]}}_{{ produto[16]}}"
-                                           name="quantity" class="form-control input-number"
+                                           name="quantity" aria-label="Quantidade de Produtos {{ produto[1] }} do {{ produto[10] }}" aria-labelledby="Quantidade de Produtos {{ produto[1] }} do {{ produto[10] }}"  class="form-control input-number"
                                            value="{{ produto[12] }}"
                                            min="1" max="100">
                                     <span class="input-group-btn ml-2">
 	                	<button type="button" id="btnMais_{{ produto[15]}}_{{ produto[16]}}"
-                                class="quantity-right-plus btn btnMaisCard" data-type="plus"
+                                class="quantity-right-plus btn btnMaisCard" aria-label="Mais Produtos {{ produto[1] }} do {{ produto[10] }}" aria-labelledby="Mais Produtos {{ produto[1] }} do {{ produto[10] }}" data-type="plus"
                                 data-field="">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
@@ -82,20 +83,22 @@
         <div class="row justify-content-end">
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Cupom de Desconto</h3>
+                     <div style="font-size:23px !important;">Cupom de Desconto</div>
+
                     <p>Entre com seu código de cupom</p>
                     <form action="#" class="info">
                         <div class="form-group">
                             <label for="">Código</label>
-                            <input type="text" class="form-control text-left px-3" placeholder="">
+                            <input type="text" class="form-control text-left px-3" aria-label="Insira Aqui o Cupom"  aria-labelledby="Insira Aqui o Cupom" placeholder="">
                         </div>
                     </form>
                 </div>
-                <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Aplicar</a></p>
+                <p><a href="checkout.html" class="btn btn-primary py-3 px-4" aria-label="Aplicar Cupom"  aria-labelledby="Aplicar Cupom">Aplicar</a></p>
             </div>
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Valor de Frete</h3>
+                      <div style="font-size:23px !important;">Valor de Frete</div>
+
                     <p>Endereço selecionado</p>
                     <form action="#" class="info">
                         <div class="form-group">
@@ -137,7 +140,8 @@
 
             <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Compra Total</h3>
+                     <div style="font-size:23px !important;">Compra Total</div>
+
                     <p class="d-flex">
                         <span>Subtotal</span>
                         <span>R$ {{ carrinho[5] }}</span>
@@ -156,7 +160,7 @@
                         <span>R$ {{ carrinho[1] }}</span>
                     </p>
                 </div>
-                <p><a href="/checkout" class="btn btn-primary py-3 px-4">Finalizar Compra</a></p>
+                <p><a href="/checkout" aria-label="Finalizar Pedido" style="width: 100%" class="btn btn-primary py-3 px-4">Finalizar Compra</a></p>
             </div>
         </div>
     </div>

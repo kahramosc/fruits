@@ -371,7 +371,12 @@ $.ajax({
    url:'/countCard',
    type:'GET',
    success: function(data){
+
        $('#countCard').html(data);
+
+        $('#countCardAria').attr("aria-label", "Carrinho de Compras com "+data+" Itens.");
+
+
    }
 });
 
@@ -400,11 +405,24 @@ $( "#btnEntrar" ).click(function() {
 
 });
 
+$( "#btnLost" ).click(function() {
+
+window.location.replace("/sendPwd");
+
+});
+
 $( "#insertAtendimento" ).click(function() {
 
  window.location.replace("/homeEmpresa");
 
 });
+
+function sendCartProduct(param11, param3){
+
+ window.location.replace('cardInsert?IdOferta='+param11+'&VrProduto='+param3+'&Quantidade=' + document.getElementById('quantityText').value);
+
+}
+
 
 
 

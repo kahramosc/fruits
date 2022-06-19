@@ -9,36 +9,28 @@
                 <a href="../static/images/{{ produto[9] }}.jpg" class="image-popup"><img
                         src="../static/images/{{ produto[9] }}.jpg"
                         class="img-fluid"
-                        alt="Colorlib Template"></a>
+                        alt="{{ produto[1] }} da fornecedor {{ produto[10] }} com 30% de Desconto, por {{ produto[3] }} reais, produto com {{ produto[7] }} estrelas de avaliação"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                <h3>{{ produto[1] }}</h3>
-                <h6>{{ produto[10] }}</h6>
+                <div style="font-size:25px !important;">{{ produto[1] }}</div>
+                <div style="font-size:15px !important;">{{ produto[10] }}</div>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
-                        <a href="#" class="mr-2">{{ produto[7] }}.0</a>
+                        {{ produto[7] }}.0
 
                         <!-- For loop logic of jinja template -->
                         {%for i in range(0, produto[7])%}
 
-                        <a href="#"><span class="ion-ios-star-outline"></span></a>
+                        <span class="ion-ios-star-outline"></span>
                         {%endfor%}
 
 
                     </p>
-                    <!--
-                   <p class="text-left mr-4">
-                       <a href="#" class="mr-2" style="color: #000;">100 <span style="color: #bbb;">Rating</span></a>
-                   </p>
 
-                   <p class="text-left">
-                       <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
-                   </p>
-                   -->
                 </div>
                 <p class="price"><span>R$ {{ produto[3] }}</span></p>
-                <p>{{ produto[6] }}
-                </p>
+                {{ produto[6]|safe }}
+
                 <div class="row mt-4">
                     <div class="col-md-7">
                         <div class="form-group d-flex">
@@ -50,16 +42,20 @@
                         <div class="w-100"></div>
                         <div class="input-group col-md-8 d-flex mb-3">
 	             	<span class="input-group-btn mr-2">
-	                	<button type="button" id="btnMenos" class="quantity-left-minus btn" data-type="minus"
+	                	<button type="button" id="btnMenos" aria-label="Menos Produtos" aria-labelledby="Menos Produtos"
+                                class="quantity-left-minus btn" data-type="minus"
                                 data-field="">
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-                            <input type="text" id="quantityText" name="quantity" class="form-control input-number"
+                            <input type="text" id="quantityText" aria-label="Quantidade de Produtos"
+                                   aria-labelledby="Quantidade de Produtos" name="quantity"
+                                   class="form-control input-number"
                                    value="1"
                                    min="1" max="100">
                             <span class="input-group-btn ml-2">
-	                	<button type="button" id="btnMais" class="quantity-right-plus btn" data-type="plus"
+	                	<button type="button" id="btnMais" aria-label="Mais Produtos" aria-labelledby="Mais Produtos"
+                                class="quantity-right-plus btn" data-type="plus"
                                 data-field="">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
@@ -72,12 +68,17 @@
                     </div>
                     <p>
 
-                        <a class="btn btn-black py-3 px-5" href="javascript:;"
-                           onclick="this.href='cardInsert?IdOferta={{ produto[11] }}&VrProduto={{ produto[3] }}&Quantidade=' + document.getElementById('quantityText').value">Adicionar
-                            ao Carrinho</a></p>
+                        <input type="button" class="btn btn-black py-3 px-5"
+                               aria-label="Adicionar no Carrinho {{ produto[1] }} do {{ produto[10] }}"
+                               aria-labelledby="Adicionar no Carrinho {{ produto[1] }} do {{ produto[10] }}"
+                               value="Adicionar ao Carrinho"
+                               onclick="sendCartProduct({{ produto[11] }},{{ produto[3] }})"/>
+
+                    </p>
                 </div>
             </div>
         </div>
+    </div>
 </section>
 {% include "sectionReferenceProducts.html" %}
 

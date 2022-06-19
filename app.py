@@ -23,6 +23,18 @@ def main():
     session.clear()
     return render_template('init.html')
 
+@app.route('/forgetPwd')
+def lostPassword():
+    session.clear()
+    return render_template('forgetPwd.html')
+
+@app.route('/sendPwd')
+def sendPwd():
+    session.clear()
+    return render_template('init.html')
+
+
+
 @app.route('/help')
 def help():
     user = getUserObject()

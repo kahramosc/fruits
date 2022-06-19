@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <title>Feira Livre - {% block title %} {% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta name="description" content="Feira Livre - Sua loja online de frutas e verduras, sempre frescas com nosso selo de qualidade.">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
           rel="stylesheet">
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="../static/css/flaticon.css">
     <link rel="stylesheet" href="../static/css/icomoon.css">
     <link rel="stylesheet" href="../static/css/style.css">
+     <link rel="stylesheet" href="../static/css/font.css">
 </head>
 <body class="goto-here">
 <div class="py-1 bg-primary">
@@ -35,13 +37,18 @@
 
     </div>
 </div>
+   <div class="boxFont">
+<input type="button"  value="A+" onClick="pagina('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte"></input>
+<input type="button"  value="A-" onClick="pagina('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte"></input>
+
+</div>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
         <img class="img-fluid logoFrutas logoFrutas-media" src="../static/images/LOGO.png"
              alt="Feira Livre">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Navegação">
             <span class="oi oi-menu"></span> Menu
         </button>
 
@@ -51,16 +58,20 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Categorias</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <div class="dropdown-menu" aria-labelledby="Categorias">
                         <div id="htmlCategoria"/>
                     </div>
                 </li>
                 <li class="nav-item"><a href="/about" class="nav-link">Sobre Nós</a></li>
                 <li class="nav-item"><a href="/help" class="nav-link">Contato</a></li>
                 <li class="nav-item"><a href="/myorder" class="nav-link">Meus Pedidos</a></li>
-                <li class="nav-item cta cta-colored" ><a href="/card" class="nav-link"><span id="countCard"
-                        class="icon-shopping_cart"></span>
-                </a></li>
+                <li class="nav-item cta cta-colored" >
+                    <a href="/card" aria-label="Carrinho de Compras." aria-labelledby="Carrinho de Compras" class="nav-link" name="countCardAria" id="countCardAria">
+                        <h3 id="countCard"
+                        class="icon-shopping_cart"  aria-label="Quantidade de Itens no Carrinho"></h3>
+                </a>
+
+                </li>
 
             </ul>
         </div>
@@ -76,7 +87,7 @@
     <div class="container">
         <div class="row">
             <div class="mouse">
-                <a href="#" class="mouse-icon">
+                <a href="#" class="mouse-icon" aria-label="Ir ao ínicio da página!" aria-labelledby="Ir ao ínicio da página!">
                     <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
                 </a>
             </div>
@@ -84,7 +95,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Feira Online</h2>
+                    <h2 class="ftco-heading-2" aria-label="Feira Livre" >Feira Online</h2>
                     <p>Sua loja online de frutas e verduras, sempre frescas com nosso selo de qualidade.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -113,9 +124,7 @@
                             <li><a href="#" class="py-2 d-block">Devoluções</a></li>
                             <li><a href="#" class="py-2 d-block">Termos e Condições</a></li>
                             <li><a href="#" class="py-2 d-block">Políticas</a></li>
-                        </ul>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">SAC</a></li>
+                             <li><a href="#" class="py-2 d-block">SAC</a></li>
                             <li><a href="#" class="py-2 d-block">Contato</a></li>
                         </ul>
                     </div>
@@ -179,6 +188,21 @@
 <script src="../static/js/card.js"></script>
 <script src="../static/js/cep.js"></script>
 <script src="../static/js/createAccount.js"></script>
+<script src="../static/js/font.js"></script>
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+
+<script type="text/javascript">!function(){var b=function(){window.__AudioEyeSiteHash = "e03d0f43f18acf38f7c874d79003696e"; var a=document.createElement("script");a.src="https://wsmcdn.audioeye.com/aem.js";a.type="text/javascript";a.setAttribute("async","");document.getElementsByTagName("body")[0].appendChild(a)};"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",b):window.attachEvent&&window.attachEvent("onload",b):b()}();</script>
 
 </body>
 </html>

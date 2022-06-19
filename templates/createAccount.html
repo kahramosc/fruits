@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <<title>Feira Livre - {% block title %} {% endblock %}</title>
+    <title>Feira Livre - {% block title %} {% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Feira Livre - Sua loja online de frutas e verduras, sempre frescas com nosso selo de qualidade.">
 
 
     <!--Fontawesome CDN-->
@@ -35,19 +36,22 @@
 <body class="goto-here">
 
 <div class="container">
+
+        <div class="boxFont">
+<input type="button"  value="A+" onClick="fonte('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte"></input>
+<input type="button"  value="A-" onClick="fonte('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte"></input>
+
+</div>
+
     <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <img class="img-fluid" src="../static/images/logobranco.png"
-                     alt="Feira Livre">
-                <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
-                </div>
+        <div class="card_create">
+            <div class="card-header" style="text-align:center">
+              <img class="img-fluid" src="../static/images/logobranco.png"
+                    alt="Logo da Feira Livre!" aria-label="Logo da Feira Livre!">
+
             </div>
             <div class="card-body">
-                <h4>Criar Conta</h4>
+                <h4 class="fontControl" style="font-size:20px"> Criar Conta </h4>
                 <form>
 
 
@@ -55,7 +59,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" id="StNome"  class="form-control" placeholder="Nome">
+                        <input type="text" id="StNome"  class="form-control" placeholder="Nome" aria-required="true" aria-label="Nome" aria-labelledby="Nome" >
 
                     </div>
 
@@ -63,7 +67,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         </div>
-                        <input type="text" id="StEmail" class="form-control" placeholder="Email">
+                        <input type="text" id="StEmail" class="form-control" placeholder="Email" aria-required="true" aria-label="Email" aria-labelledby="Email" >
 
                     </div>
 
@@ -71,15 +75,15 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" id="StSenha" class="form-control" placeholder="Senha">
-                        <input type="password" class="form-control" placeholder="Confirmar">
+                        <input type="password" id="StSenha" class="form-control" placeholder="Senha" aria-required="true" aria-label="Senha" aria-labelledby="Senha">
+                        <input type="password" class="form-control" placeholder="Confirmar" aria-required="true" aria-label="Confirmar Senha" aria-labelledby="Confirmar Senha">
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="StCep" placeholder="CEP">
+                        <input type="text" class="form-control" id="StCep" placeholder="CEP" aria-required="true" aria-label="Buscar CEP" aria-labelledby="Buscar CEP">
                         <input type="button" id="btnBuscarCep" value="Buscar" class="float-right btnBuscar">
 
                     </div>
@@ -90,7 +94,23 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StLagradouro" placeholder="Rua">
+                            <input type="text" class="form-control" id="StLagradouro" aria-required="true" placeholder="Rua" aria-label="Endereco" aria-labelledby="Endereco">
+  <input type="text" class="form-control" id="StNumero" placeholder="Número" aria-label="Numero" aria-labelledby="Numero">
+
+                        </div>
+
+
+
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="StCidade" aria-required="true" placeholder="Cidade" aria-label="Cidade" aria-labelledby="Cidade">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="StEstado" aria-required="true" placeholder="Estado" aria-label="Estado" aria-labelledby="Estado">
+
 
                         </div>
 
@@ -98,7 +118,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StNumero" placeholder="Número">
+                            <input type="text" class="form-control" id="StBairro" aria-required="true" placeholder="Bairro" aria-label="Bairro" aria-labelledby="Bairro">
 
                         </div>
 
@@ -106,40 +126,20 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StCidade" placeholder="Cidade">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="StEstado" placeholder="Estado">
-
-
-                        </div>
-
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="StBairro" placeholder="Bairro">
-
-                        </div>
-
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="StComplemento" placeholder="Complemento">
+                            <input type="text" class="form-control" id="StComplemento" placeholder="Complemento" aria-label="Complemento" aria-labelledby="Complemento">
 
                         </div>
 
                     </div>
 
 
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Aceito os Termos
+                    <div class="row align-items-center remember fontControl" style="font-size:20px">
+                        <input type="checkbox" aria-label="Aceitar Termos" aria-labelledby="Aceitar Termos">Aceito os Termos
                     </div>
 <br>
-                    <div class="form-group">
-                        <input type="button" id="createAccount" value="Criar Conta" class="btn float-right login_btn">
+                    <div class="form-group" style="text-align:center;">
+
+                        <input type="button" id="createAccount" aria-label="Criar Conta" aria-labelledby="Criar Conta" value="Criar Conta" class="btn float-right login_btn fontControl">
                     </div>
                 </form>
             </div>
@@ -166,6 +166,23 @@
 <script src="../static/js/main.js"></script>
 <script src="../static/js/cep.js"></script>
 <script src="../static/js/createAccount.js"></script>
+<script src="../static/js/font.js"></script>
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+
+    <script type="text/javascript">!function(){var b=function(){window.__AudioEyeSiteHash = "e03d0f43f18acf38f7c874d79003696e"; var a=document.createElement("script");a.src="https://wsmcdn.audioeye.com/aem.js";a.type="text/javascript";a.setAttribute("async","");document.getElementsByTagName("body")[0].appendChild(a)};"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",b):window.attachEvent&&window.attachEvent("onload",b):b()}();</script>
+
 
 </body>
 </html>
