@@ -38,8 +38,8 @@
 <div class="container">
 
         <div class="boxFont">
-<input type="button"  value="A+" onClick="fonte('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte"></input>
-<input type="button"  value="A-" onClick="fonte('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte"></input>
+<input type="button"  aria-describedby="Aumentar Fonte" aria-disabled="true" onClick="fonte('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte" value="A+"></input>
+<input type="button"  aria-describedby="Diminuir Fonte" aria-disabled="true" onClick="fonte('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte" value="A-"></input>
 
 </div>
 
@@ -59,7 +59,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" id="StNome"  class="form-control" placeholder="Nome" aria-required="true" aria-label="Nome" aria-labelledby="Nome" >
+                        <input type="text" id="StNome" class="form-control" placeholder="Nome" aria-required="true" aria-label="Nome" aria-labelledby="Nome" >
 
                     </div>
 
@@ -75,16 +75,16 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" id="StSenha" class="form-control" placeholder="Senha" aria-required="true" aria-label="Senha" aria-labelledby="Senha">
-                        <input type="password" class="form-control" placeholder="Confirmar" aria-required="true" aria-label="Confirmar Senha" aria-labelledby="Confirmar Senha">
+                        <input type="password" id="StSenha"  class="form-control" placeholder="Senha" aria-required="true" aria-label="Senha" aria-labelledby="Senha">
+                        <input type="password" class="form-control"  placeholder="Confirmar" aria-required="true" aria-label="Confirmar Senha" aria-labelledby="Confirmar Senha">
                     </div>
 
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="StCep" placeholder="CEP" aria-required="true" aria-label="Buscar CEP" aria-labelledby="Buscar CEP">
-                        <input type="button" id="btnBuscarCep" value="Buscar" class="float-right btnBuscar">
+                        <input type="text" class="form-control"   id="StCep" placeholder="CEP" aria-required="true" aria-label="CEP" aria-labelledby="CEP">
+                        <input type="button" id="btnBuscarCep"   aria-label="Buscar CEP" aria-labelledby="Buscar CEP" value="Buscar" class="float-right btnBuscar">
 
                     </div>
 
@@ -94,8 +94,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StLagradouro" aria-required="true" placeholder="Rua" aria-label="Endereco" aria-labelledby="Endereco">
-  <input type="text" class="form-control" id="StNumero" placeholder="Número" aria-label="Numero" aria-labelledby="Numero">
+                            <input type="text" class="form-control"  id="StLagradouro" aria-required="true" placeholder="Rua" aria-label="Endereco" aria-labelledby="Endereco">
+  <input type="text" class="form-control" id="StNumero"   placeholder="Número" aria-label="Numero" aria-labelledby="Numero">
 
                         </div>
 
@@ -105,11 +105,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StCidade" aria-required="true" placeholder="Cidade" aria-label="Cidade" aria-labelledby="Cidade">
+                            <input type="text" class="form-control" id="StCidade"   aria-required="true" placeholder="Cidade" aria-label="Cidade" aria-labelledby="Cidade">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StEstado" aria-required="true" placeholder="Estado" aria-label="Estado" aria-labelledby="Estado">
+                            <input type="text" class="form-control" id="StEstado"   aria-required="true" placeholder="Estado" aria-label="Estado" aria-labelledby="Estado">
 
 
                         </div>
@@ -118,7 +118,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="StBairro" aria-required="true" placeholder="Bairro" aria-label="Bairro" aria-labelledby="Bairro">
+                            <input type="text" class="form-control"  id="StBairro" aria-required="true" placeholder="Bairro" aria-label="Bairro" aria-labelledby="Bairro">
 
                         </div>
 
@@ -134,12 +134,12 @@
 
 
                     <div class="row align-items-center remember fontControl" style="font-size:20px">
-                        <input type="checkbox" aria-label="Aceitar Termos" aria-labelledby="Aceitar Termos">Aceito os Termos
+                        <input type="checkbox" aria-label="Aceitar Termos"  aria-labelledby="Aceitar Termos">Aceito os Termos
                     </div>
 <br>
                     <div class="form-group" style="text-align:center;">
 
-                        <input type="button" id="createAccount" aria-label="Criar Conta" aria-labelledby="Criar Conta" value="Criar Conta" class="btn float-right login_btn fontControl">
+                        <input type="button" id="createAccount"  aria-label="Criar Conta" aria-labelledby="Criar Conta" value="Criar Conta" class="btn float-right login_btn fontControl">
                     </div>
                 </form>
             </div>

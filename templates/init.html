@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Feira Livre - {% block title %} {% endblock %}</title>
+    <title>Feira Livre - Sua Feira Online ! {% block title %} {% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Feira Livre - Sua loja online de frutas e verduras, sempre frescas com nosso selo de qualidade.">
@@ -48,11 +48,12 @@
         <div id="alerta"></div>
     </div>
 
-    <div class="boxFont">
-<input type="button"  value="A+" onClick="fonte('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte"></input>
-<input type="button"  value="A-" onClick="fonte('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte"></input>
+  <div class="boxFont">
+<input type="button"  aria-describedby="Aumentar Fonte" aria-disabled="true"  onClick="fonte('a');" aria-label="Aumentar Fonte" aria-labelledby="Aumentar Fonte" value="A+"></input>
+<input type="button"  aria-describedby="Diminuir Fonte" aria-disabled="true"  onClick="fonte('d');" aria-label="Diminuir Fonte" aria-labelledby="Diminuir Fonte" value="A-"></input>
 
 </div>
+
 
     <div class="d-flex justify-content-center h-80">
         <div class="card">
@@ -73,20 +74,20 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" id="StEmail" class="form-control" placeholder="Email" aria-label="Email" aria-labelledby="Email">
+                        <input type="text"  id="StEmail" class="form-control" placeholder="Email" aria-label="Email" aria-labelledby="Email">
 
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" id="StSenha" class="form-control" placeholder="Senha" aria-label="Senha" aria-labelledby="Senha">
+                        <input type="password"  id="StSenha" class="form-control" placeholder="Senha" aria-label="Senha" aria-labelledby="Senha">
                     </div>
                     <div class="row align-items-center remember fontControl">
-                        <input type="checkbox" aria-label="Lembrar-me na próxima vez" aria-labelledby="Lembrar-me na próxima vez">Lembrar-me
+                        <input type="checkbox"  aria-label="Lembrar-me na próxima vez" aria-labelledby="Lembrar-me na próxima vez">Lembrar-me
                     </div>
                     <div class="form-group" style="text-align:center;">
-                        <input type="button" id="btnEntrar" value="Entrar" aria-label="Entrar" aria-labelledby="Entrar" class="btn float-right login_btn">
+                        <input type="button" id="btnEntrar"  value="Entrar" aria-label="Entrar" aria-labelledby="Entrar" class="btn float-right login_btn">
                     </div>
                 </form>
             </div>
@@ -96,13 +97,12 @@
                     <a class="fontControl" href="/createAccount">Criar Conta</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a class="fontControl" href="/forgetPwd">Esqueci a senha?</a>
+                    <a class="fontControl"  href="/forgetPwd">Esqueci a senha?</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 
 <script src="../static/js/jquery.min.js"></script>

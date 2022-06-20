@@ -4,16 +4,30 @@
             <div class="col-md pr-4 d-flex topper align-items-center">
                 <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
                         class="fa-user"></span></div>
-                <span class="text">Olá, {{user[1]}} &nbsp;<a  aria-label="Sair de {{user[1]}}" class="linkTrocar" href="/logout">[Sair]</a></span>
+                <span class="text">Olá, {{user[1]}} - ({{user[2]}}) &nbsp;<a aria-label="Sair de {{user[1]}})" class="linkTrocar"
+                                                             href="/logout">[Sair]</a></span>
             </div>
             <div class="col-md pr-4 d-flex topper align-items-center">
-                <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
-                        class="icon-paper-plane"></span></div>
-                <span class="text">{{user[2]}}</span>
+                <div class="icon mr-2 d-flex justify-content-center align-items-center"></div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="color:#fff; cursor:move; font-size:20px;"
+                        type="button" aria-disabled="true" value="A+" onClick="pagina('a');" aria-label="Aumentar Fonte"
+                        aria-labelledby="Aumentar Fonte">A+</div>
+&nbsp;&nbsp;&nbsp;
+        <div style="color:#fff; cursor:move; font-size:20px;"  type="button" aria-disabled="true" value="A-" onClick="pagina('d');" aria-label="Diminuir Fonte"
+      aria-labelledby="Diminuir Fonte">A-</div>
+
+
             </div>
             <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-                <span class="text">{{endereco[3]}}&nbsp;,&nbsp;{{endereco[4]}}&nbsp;-&nbsp;{{endereco[8]}} <a class="linkTrocar" aria-label="Trocar Endereço de {{endereco[3]}}" href="/changeAddress">[Trocar]</a></span>
+                <span class="text">{{endereco[3]}}&nbsp;,&nbsp;{{endereco[4]}}&nbsp;-&nbsp;{{endereco[8]}} <a
+                        class="linkTrocar" aria-label="Trocar Endereço de {{endereco[3]}}" href="/changeAddress">[Trocar]</a></span>
+
+
             </div>
+
+
         </div>
     </div>
 </div>
