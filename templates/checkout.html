@@ -122,7 +122,7 @@
                         <span>R$ {{ carrinho[1] }}</span>
                     </p>
                 </div>
-                <p><a thref="/finalizar" class="btn btn-primary py-3 px-4"
+                <p><a href="/finalizar" class="btn btn-primary py-3 px-4"
                       aria-label="Finalizar Pedido no valor total de {{ carrinho[1] }} reais com Frete de {{ carrinho[3] }} e produtos no valor de {{ carrinho[5] }}
                       com os produtos {% for produto in produtos %} {{ produto[12] }} unidades de {{ produto[1] }} do {{ produto[10] }} {%endfor%} com entrega na  {{ endereco[3] }}  {{ endereco[4] }}"
                        aria-labelledby="Finalizar Pedido no valor total de {{ carrinho[1] }} reais com Frete de {{ carrinho[3] }} e produtos no valor de {{ carrinho[5] }}
