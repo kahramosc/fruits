@@ -10,7 +10,7 @@ Flask-MySQL==1.5.2
 Flask-Session==0.4.0
 flask-ask==0.9.7
 secure-cookie==0.2.0
-pyOpenSSL==22.1.0
+pyOpenSSL==17.0.0
 PyYAML==3.12
 six==1.11.0
 cryptography==38.0.3
