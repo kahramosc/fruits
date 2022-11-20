@@ -3,7 +3,6 @@ from flaskext.mysql import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_session import Session
 
-
 mysql = MySQL()
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -23,10 +22,12 @@ def main():
     session.clear()
     return render_template('init.html')
 
+
 @app.route('/forgetPwd')
 def lostPassword():
     session.clear()
     return render_template('forgetPwd.html')
+
 
 @app.route('/sendPwd')
 def sendPwd():
@@ -34,26 +35,29 @@ def sendPwd():
     return render_template('init.html')
 
 
-
 @app.route('/help')
 def help():
     user = getUserObject()
-    return render_template('ajuda.html',user=user)
+    return render_template('ajuda.html', user=user)
+
 
 @app.route('/logout')
 def logout():
     return main()
 
+
 @app.route('/homeEmpresa')
 def homeEmpresa():
     empresa = getEmpresa()
-    return render_template('indexEmpresa.html',empresa=empresa)
+    return render_template('indexEmpresa.html', empresa=empresa)
+
 
 @app.route('/orderForMe')
 def orderForMe():
     empresa = getEmpresa()
     orders = selectOrderByEmpresa(empresa[0]);
-    return render_template('orderForMe.html',orders=orders)
+    return render_template('orderForMe.html', orders=orders)
+
 
 @app.route('/getHtmlHeader')
 def getHtmlHeader():
@@ -61,38 +65,42 @@ def getHtmlHeader():
     address = getAddressUserDefault()
     return render_template('htmlHeader.html', user=user, endereco=address)
 
+
 @app.route('/getHtmlHeaderEmpresa')
 def getHtmlHeaderEmpresa():
     user = getUserObject()
     address = getAddressUserDefault()
     return render_template('htmlHeaderEmpresa.html', user=user, endereco=address)
 
+
 @app.route('/myorder')
 def myorder():
     orders = selectOrderByUser();
     return render_template('myorder.html', orders=orders)
+
 
 @app.route('/changeAddress')
 def changeAddress():
     address = getAddressAll()
     return render_template('changeAddress.html', address=address)
 
+
 @app.route('/selectEnd')
 def selectEnd():
-
     id_adr = request.args.get('CdEndereco')
     session['IdEndereco'] = id_adr
 
     return home()
 
+
 @app.route('/removeEnd')
 def removeEnd():
-
     id_adr = request.args.get('CdEndereco')
 
     removeAddress(id_adr)
 
     return changeAddress()
+
 
 @app.route('/finalizar')
 def finalizar():
@@ -149,6 +157,7 @@ def loginOpen():
         status=200
     )
 
+
 @app.route('/insertAddress', methods=['POST', 'GET'])
 def insertAddress():
     data = request.get_json(force=True)
@@ -172,6 +181,7 @@ def insertAddress():
         data=id_user,
         status=200
     )
+
 
 @app.route('/insertUser', methods=['POST', 'GET'])
 def insertUser():
@@ -220,14 +230,14 @@ def insertAddress(StBairro, StCep, StCidade, StComplemento, StEstado, StLagradou
     conn.commit()
     conn.close()
 
-def removeAddress(id_add):
 
+def removeAddress(id_add):
     count = getCountAddressAll()
 
-    #Somente 1 endereço, não pode mudar
+    # Somente 1 endereço, não pode mudar
     if count > 1:
 
-        #verificar se está sendo usado em algum pedido
+        # verificar se está sendo usado em algum pedido
         count = getOrderByAddress(id_add)
 
         conn = mysql.connect()
@@ -243,7 +253,6 @@ def removeAddress(id_add):
         cursor.execute(sql, val)
         conn.commit()
         conn.close()
-
 
 
 def createUser(StEmail, StNome, StSenha):
@@ -295,36 +304,39 @@ def linkUpdateCardItens():
 def createAccount():
     return render_template('createAccount.html')
 
+
 def getCardByOrder(id_ord):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT IdCarrinho FROM tbpedido where IdPedido= %s",(id_ord))
+    cursor.execute("SELECT IdCarrinho FROM tbpedido where IdPedido= %s", (id_ord))
     id_card = cursor.fetchall()
     conn.close()
 
     return id_card;
 
+
 def getAddressByOrder(id_ord):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT CdEndereco FROM tbpedido where IdPedido= %s",(id_ord))
+    cursor.execute("SELECT CdEndereco FROM tbpedido where IdPedido= %s", (id_ord))
     id_adr = cursor.fetchall()
     conn.close()
 
     return id_adr;
 
+
 def getOrderByAddress(id_adr):
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute("SELECT count(*) FROM tbpedido where CdEndereco= %s",(id_adr))
+    cursor.execute("SELECT count(*) FROM tbpedido where CdEndereco= %s", (id_adr))
     count = cursor.fetchall()
     conn.close()
 
     return count[0];
 
+
 @app.route('/detailsOrder')
 def detailsOrder():
-
     id_ord = request.args.get('order')
 
     id_card = getCardByOrder(id_ord)
@@ -342,14 +354,13 @@ def detailsOrder():
 
 @app.route('/detailsOrderEmpresa')
 def detailsOrderEmpresa():
-
     id_ord = request.args.get('order')
 
     id_card = getCardByOrder(id_ord)
 
     cod_adr = getAddressByOrder(id_ord)
 
-    #card = selectCard(id_card)
+    # card = selectCard(id_card)
 
     id_emp = getEmpresa()
 
@@ -388,6 +399,7 @@ def details():
         cursor.close()
         conn.close()
 
+
 @app.route('/detailsHash')
 def detailsHash():
     conn = mysql.connect()
@@ -419,6 +431,7 @@ def detailsHash():
 @app.route('/raio')
 def raio():
     return render_template('raio.html')
+
 
 @app.route('/htmlCategoria')
 def getCategorias():
@@ -465,7 +478,7 @@ def signUp():
             cursor.callproc('sp_createUser', (_name, _email, _hashed_password))
             data = cursor.fetchall()
 
-            if len(data) is 0:
+            if len(data) == 0:
                 conn.commit()
                 return json.dumps({'message': 'User created successfully !'})
             else:
@@ -503,6 +516,7 @@ def list():
         cursor.close()
         conn.close()
 
+
 @app.route('/listEmpresa')
 def listEmpresa():
     conn = mysql.connect()
@@ -525,6 +539,7 @@ def listEmpresa():
     finally:
         cursor.close()
         conn.close()
+
 
 @app.route('/removeCardItem', methods=['POST', 'GET'])
 def removeCardItem():
@@ -550,7 +565,6 @@ def checkout():
 
 @app.route('/cardInsert', methods=['POST', 'GET'])
 def insertCard():
-
     id_ofer = request.args.get('IdOferta')
     qt_product = request.args.get('Quantidade')
     vr_product = request.args.get('VrProduto')
@@ -571,7 +585,7 @@ def getTemplateCard(id_card, page):
 
     address = getAddressUserDefault()
 
-    return render_template(page, produtos=product, carrinho=card,endereco=address)
+    return render_template(page, produtos=product, carrinho=card, endereco=address)
 
 
 def insertCardItens(IdCarrinho, IdOferta, QtProduto, VrProduto):
@@ -690,6 +704,7 @@ def getUser():
 
     return idUsuario
 
+
 def getUserObject():
     id_user = 0
 
@@ -711,8 +726,8 @@ def getUserObject():
     conn.close()
     return user
 
-def getEmpresa():
 
+def getEmpresa():
     id_user = getUser()
 
     conn = mysql.connect()
@@ -777,6 +792,25 @@ def getAddressAll():
 
     return address
 
+
+def getAddressUserDefaultIdUser(id_user):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    sql = "SELECT " \
+          "CdEndereco,DsCep,IdUsuario,DsLagradouro,DsNumero,DsCidade,DsEstado,DsComplemento,DsBairro " \
+          "FROM tbendereco " \
+          "WHERE IdUsuario=%s ORDER BY 1 DESC"
+    val = id_user
+    cursor.execute(sql, val)
+    address = cursor.fetchone()
+
+    cursor.close();
+    conn.close();
+
+    return address
+
+
 def getAddressUserDefault():
     id_user = 0
 
@@ -808,8 +842,8 @@ def getAddressUserDefault():
 
     return address
 
-def getAddressSession():
 
+def getAddressSession():
     address = 0;
 
     if session.get('IdEndereco'):
@@ -819,8 +853,8 @@ def getAddressSession():
 
     return address
 
-def getAddressSelectUnique(id_adr):
 
+def getAddressSelectUnique(id_adr):
     conn = mysql.connect()
     cursor = conn.cursor()
 
@@ -876,6 +910,7 @@ def selectCardItens(IdCarrinho):
 
     return produtos;
 
+
 def selectCardItensByEmpresa(IdCarrinho, IdEmpresa):
     conn = mysql.connect()
     cursor = conn.cursor()
@@ -907,7 +942,7 @@ def insertOrder():
     cursor = conn.cursor()
 
     sql = "INSERT INTO tbpedido (IdCarrinho, IdFormaPagamento, DsStatus, CdEndereco) VALUES (%s,%s,%s,%s)"
-    val = (id_card, 1, 'INICIADO',address[0])
+    val = (id_card, 1, 'INICIADO', address[0])
     cursor.execute(sql, val)
     id_ord = cursor.lastrowid
 
@@ -916,9 +951,7 @@ def insertOrder():
     return id_ord;
 
 
-
 def selectOrderByEmpresaAndCard(id_card, id_emp):
-
     conn = mysql.connect()
     cursor = conn.cursor()
 
@@ -931,11 +964,12 @@ def selectOrderByEmpresaAndCard(id_card, id_emp):
           "WHERE ofe.IdEmpresa = %s and car.IdCarrinho = %s " \
           "GROUP BY car.IdCarrinho,car.IdUsuario,car.VrFrete, car.VrDesconto "
 
-    val = (id_emp,id_card)
+    val = (id_emp, id_card)
     cursor.execute(sql, val)
     order = cursor.fetchone()
 
     return order
+
 
 def selectOrderByEmpresa(id_emp):
     id_user = getUser()
@@ -975,6 +1009,38 @@ def selectOrderByUser():
     val = id_user
     cursor.execute(sql, val)
     orders = cursor.fetchall()
+
+    return orders;
+
+
+def selectOrderByUserId(id_user):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    sql = "SELECT " \
+          "ped.IdPedido,ped.IdFormaPagamento,ped.DsStatus,pag.DsDescricao,car.VrTotal " \
+          "FROM tbpedido ped inner join tbcarrinho car on ped.IdCarrinho = car.IdCarrinho " \
+          "INNER JOIN tbformapagamento pag on pag.IdFormaPagamento = ped.IdFormaPagamento " \
+          "WHERE car.IdUsuario = %s ORDER BY 1 desc"
+
+    val = id_user
+    cursor.execute(sql, val)
+    orders = cursor.fetchall()
+
+    return orders;
+
+
+def selectOrderByUserIdLast(id_user):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    sql = "SELECT " \
+          "ped.IdPedido,ped.DsStatus " \
+          "FROM tbpedido ped inner join tbcarrinho car on ped.IdCarrinho = car.IdCarrinho " \
+          "WHERE car.IdUsuario = %s ORDER BY 1 desc"
+    val = id_user
+    cursor.execute(sql, val)
+    orders = cursor.fetchone()
 
     return orders;
 
