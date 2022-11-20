@@ -1,6 +1,6 @@
 click==8.0.3
 colorama==0.4.4
-Flask==0.12.1
+Flask==1.1.1
 gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.3
@@ -10,8 +10,7 @@ Flask-MySQL==1.5.2
 Flask-Session==0.4.0
 flask-ask==0.9.7
 secure-cookie==0.2.0
-pyOpenSSL==20.0.1
-PyYAML==3.12
-six==1.10.0
-cryptography==36.0.2
+pyOpenSSL==18.0.0
+PyYAML==5.4
+six==1.11.0
 aniso8601==1.2.0
